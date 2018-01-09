@@ -1,0 +1,27 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form, model)">
+  <div class="form">
+    <h3>Add your details :</h3>
+    <div class="flex-row">
+      <label for="name">Name: </label>
+      <input [(ngModel)]="model.name" name="name" placeholder="Name" required #name="ngModel">
+      <!-- <span *ngIf=!model.name>Name is required field.</span> -->
+    </div>
+    <div class="flex-row">
+      <label for="name">Description:</label>
+      <input [(ngModel)]="model.desc" name="description" placeholder="description" required #desc="ngModel">
+      <!-- <span *ngIf=desc>Description is required field.</span> -->
+    </div>
+    <div class="flex-row">
+        <label for="Age">Age: </label>
+        <input id="age" name="age" placeholder="Age" [(ngModel)]="model.age" required #first="ngModel">
+      <!-- <span *ngIf=age>Age is required field.</span> -->
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+<!-- 
+<h3> Output :</h3>
+<div class="flex-row"><h4>Your Age: </h4>{{ model.age }}</div>
+<div class="flex-row"><h4>Name : </h4>{{ model.name }}</div>
+<div class="flex-row"><h4>Power : </h4>{{ model.desc }}</div> -->
