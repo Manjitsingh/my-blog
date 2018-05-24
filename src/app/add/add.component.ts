@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Hero } from '../hero';
-import { ContactDetailsService } from '../contact-details.service'
-
+import { ContactDetailsService } from '../contact-details.service';
+import { Http, Response, Headers } from '@angular/http';
 @Component({
   selector: 'add',
   templateUrl: './add.component.html',
@@ -9,27 +9,29 @@ import { ContactDetailsService } from '../contact-details.service'
   encapsulation: ViewEncapsulation.None
 })
 export class AddComponent implements OnInit {
+  name:string = '';
+  age:number;
+  found:boolean = false;
 
   constructor (
-    public contactservice: ContactDetailsService
+    public contactservice: ContactDetailsService,
+    private http: Http
   ) { }
 
-  saveAllContact(details) {
-    let req = Object.assign({},details);
-    this.contactservice.saveContact(req);
-  }
+  contactObj:object = {};
 
-  onSubmit(form, model) {
-    if(form.valid == true) {
-      this.saveAllContact(model);
+  onSubmit(model) {
+    this.contactObj = {
+      "name": model.name,
+      "age": model.age,
+      "place": model.place,
     }
-    else {
-      // alert("Please check value of VAR");
-      return false;
-    }
+    console.log(this.contactObj);
+    this.http.post('http://localhost:8888/', this.contactObj).subscribe((res:Response) => {
+      // console.log(res);
+    })
   }
-
-  model = { name: "", desc: "", age: ""};
+  model = { name: "", age: "", place: ""};
 
   ngOnInit() {}
 }

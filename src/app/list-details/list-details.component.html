@@ -1,6 +1,14 @@
 <div class="no-result" *ngIf="!getContactData.length;">No fucking Result.</div>
-<div class='details' *ngFor="let data of getContactData">
-    <div class="flex-row"><h5>Name:</h5><span class='col'>{{data.name}}</span></div>
-    <div class="flex-row"><h5>Description:</h5><span class='col'>{{data.desc}}</span></div>
-    <div class="flex-row"><h5>Age :</h5><span class='col'>{{data.age}}</span></div>
+
+<div class="details">
+    <div class="flex-row header">
+        <span>Name</span>
+        <span>Age</span>
+        <span>Place</span>
+    </div>
+    <div class="flex-row values" *ngFor="let data of getContactData">
+        <span>{{ data.name }}</span>
+        <span>{{data.age}}</span>
+        <span>{{data.place}}</span>
+    </div>
 </div>

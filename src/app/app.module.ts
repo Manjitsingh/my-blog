@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +26,8 @@ import { ContactDetailsService } from './contact-details.service'
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [ContactDetailsService],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ import { homepageData } from '../homepage.mock';
 @Component({
   selector: 'homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss'],
+  styleUrls: ['../app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 

@@ -10,25 +10,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListDetailsComponent implements OnInit {
 
-  getContactData = []
-  API_ENDPOINT = 'http://localhost:3000';
+  getContactData = [];
 
   constructor(
     public contactservice: ContactDetailsService,
-    private http: HttpClient
+    private httpClient: HttpClient
   ) { }
 
-  getContact() {
-    this.getContactData = this.contactservice.getAllContact();
+
+  listContact() {
+    this.httpClient.get('http://localhost:8888/')
+    .subscribe(
+      (res: any) => {
+        this.getContactData = res;
+      }
+    )
   }
 
-
   ngOnInit(): void {
-    // this.getContact();
-    this.http.get(`${this.API_ENDPOINT}/books`).subscribe(data => {
-      // Read the result field from the JSON response.
-      this.getContactData = data['books'];
-    });
+    this.listContact();
   }
 
 }
