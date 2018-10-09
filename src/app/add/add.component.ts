@@ -20,13 +20,19 @@ export class AddComponent implements OnInit {
 
   contactObj:object = {};
 
+  fileChangeEvent(event) {
+    console.log(event['path']['0']['files']['0']['name']);
+  }
+
   onSubmit(model) {
     this.contactObj = {
       "name": model.name,
       "age": model.age,
       "place": model.place,
+      "photo": model.photo
     }
     console.log(this.contactObj);
+    console.log(model.photo);
     this.http.post('http://localhost:8888/', this.contactObj).subscribe((res:Response) => {
       // console.log(res);
     })

@@ -13,6 +13,10 @@
       <label for="name">Place:</label>
       <input [(ngModel)]="model.place" name="Place" placeholder="place" required #desc="ngModel">
     </div>
+    <div class="flex-row">
+      <label for="name">Photo:</label>
+      <input [(ngModel)]="model.photo" type="file" name="Photo" placeholder="Upload your Photo" required #desc="ngModel" (change)="fileChangeEvent($event)">
+    </div>
   </div>
   <button type="submit">Submit</button>
 </form>
